@@ -1,12 +1,6 @@
-fetch("./node_modules/nice-color-palettes/100.json")
-.then(response => response.json())
-.then(palletes => {
-  window.addEventListener("load", function(){draw(palletes)});
-})
+window.addEventListener("load", draw);
 
-
-function draw(palettes) {
-  const palette = palettes[Math.floor(Math.random()*100)]
+function draw() {
   let height = 1000,
     width = 1000,
     margin = 0;
@@ -22,31 +16,30 @@ function draw(palettes) {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width - margin * 2, width - margin * 2);
 
-    drawGrid(ctx, 40, 4, 5, width - 2 * margin, palette);
+    drawGrid(ctx, 80, 4, 5, width - 2 * margin);
   }
 }
 
-function drawGrid(ctx, gridSize, circleRadius, lineWidth, canvasSize, palette) {
+function drawGrid(ctx, gridSize, circleRadius, lineWidth, canvasSize) {
   let points = [];
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
       points.push([
         Math.floor(canvasSize * (gridSize > 1 ? i / (gridSize-1) : 0.5)),
         Math.floor(canvasSize * (gridSize > 1 ? j / (gridSize-1) : 0.5)),
-        Math.floor(Math.random()*35),
-        palette[Math.floor(Math.random()*(palette.length+1))]
+        Math.floor(Math.random()*16)
       ]);
     }
   }
 
   points = points.filter(point => Math.random() < 0.5)
 
-  points.forEach(([x, y, r, color]) => {
+  points.forEach(([x, y, r]) => {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.strokeStyle = "black";
     ctx.lineWidth = lineWidth;
-    ctx.fillStyle=color
+    ctx.fillStyle="black"
     ctx.fill();
     ctx.closePath();
   });

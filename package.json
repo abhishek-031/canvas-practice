@@ -1,0 +1,24 @@
+{
+  "name": "canvas-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishek-031/canvas-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishek-031/canvas-practice/issues"
+  },
+  "homepage": "https://github.com/abhishek-031/canvas-practice#readme",
+  "dependencies": {
+    "nice-color-palettes": "^3.0.0"
+  }
+}
